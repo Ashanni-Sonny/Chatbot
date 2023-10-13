@@ -10,23 +10,37 @@ from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 
 
+#Defining a function named 'get_pdf_text' that takes a list of 'pdf_docs' as an input
 def get_pdf_text(pdf_docs):
+    #Initialising an empty string 'text' that stores the extracted text.
     text = ""
+    #For loop used to iterate through the list of 'pdf_docs'.
     for pdf in pdf_docs:
+        #Creates a PdfReader object for the current PDF document.
         pdf_reader = PdfReader(pdf)
+        #For loop used to iterate through the pages of the PDF document.
         for page in pdf_reader.pages:
+            #Extract the text from the current page and append it to the 'text' string.
             text += page.extract_text()
+            #Return the concatenated 'text' from all the PDF documents.
     return text
 
-
+#Defining a function named 'get_text_chunks' that takes a 'text' as an input.
 def get_text_chunks(text):
+    #Created an instance of 'CharacterTextSplitter' and configured it.
     text_splitter = CharacterTextSplitter(
+        #this splits the text at the line breaks.
         separator="\n",
+        #Create chunks of the text up to 1000 characters
         chunk_size=1000,
+        #Allows an overlap of 200 characters between chunks.
         chunk_overlap=200,
+        #Created an instance 'len' where the function is used to calculate the length of the text.
         length_function=len
     )
+    #Use the 'split_text' method of the 'text_splitter' to split the input 'text' into chunks
     chunks = text_splitter.split_text(text)
+    #Returns the list of 'chunks'.
     return chunks
 
 # This function handles the embedding of our text chunks which were generated from the PDF.Embedding are numerical vector representations of our chunks of 
