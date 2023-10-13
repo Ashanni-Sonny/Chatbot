@@ -2,13 +2,13 @@ import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
+from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
-from langchain.llms import HuggingFaceHub
+
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -29,14 +29,17 @@ def get_text_chunks(text):
     chunks = text_splitter.split_text(text)
     return chunks
 
-
+# This function handles the embedding of our text chunks which were generated from the PDF.Embedding are numerical vector representations of our chunks of 
+# text where each word or phrase is represented as a vector of numbers. Words that are similar in meaning or context are stored in vectors which are close 
+# togeher in vector space which makes it easier for our Chatbot to determine an appropriate answer based on the data from the PDF. The embedding in this
+# code is done using OpenAI's embedding model.
 def get_vectorstore(text_chunks):
-    # embeddings = OpenAIEmbeddings()
-    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
+    embeddings = OpenAIEmbeddings() 
+    # Some exception handling is done to check if the vector store has been successfully created
     try:
-        vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
-        if vectorstore is None:
-            st.error("Vectorstore creation failed: returned None")
+        vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)    # FAISS is used as a data base to create a vector store so that we can store
+        if vectorstore is None:                                                    # our embeddings. FAISS runs locally so all the data is stored on our machine    
+            st.error("Vectorstore creation failed: returned None")                 # as opposed to a cloud. 
         return vectorstore
     except Exception as e:
         st.error(f"Error creating vectorstore: {e}")
@@ -46,11 +49,12 @@ def get_vectorstore(text_chunks):
 
 
 
-
-def get_conversation_chain(vectorstore):
-    #llm = ChatOpenAI()
-    llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
-
+# The function below allows the user to have a conversation with the chatbot using ChatOpenAI llm, it also creates a memory store so that a user can ask a follow 
+# up question from a previous question and Chatbot will be able to know the context of that question based on previous questions and responses.
+def get_conversation_chain(vectorstore): 
+    llm = ChatOpenAI()
+    
+    # This is the instance at which the conversation memory is created.
     memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
@@ -58,7 +62,7 @@ def get_conversation_chain(vectorstore):
         retriever=vectorstore.as_retriever(),
         memory=memory
     )
-    return conversation_chain
+    return conversation_chain # This returns the conversation chain 
 
 
 def handle_userinput(user_question):
