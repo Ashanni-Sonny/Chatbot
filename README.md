@@ -15,3 +15,6 @@ the requirment file and the .env file were added. Coomented the two first functi
 
 11/03/23 - Ari Ramnarine
 the code was updated to allow reference to admin assistant
+
+11/11/23 - Ari Ramnarine
+The updated code was placed into a separate ver 0.02
