@@ -8,7 +8,7 @@ The format for the logs is below just continue below.
 The log was created.
 
 10/07/2023 - Ari Ramnarine
-Base code for Chatbot was added ver 0.01
+Base code for Chatbot was added ver 0.01 in the NLTKProj folder
 
 10/13/2023 - Erim Herbert\
 the requirment file and the .env file were added. Coomented the two first functions within the code.
