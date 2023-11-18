@@ -19,8 +19,14 @@ the requirment file and the .env file were added. Coomented the two first functi
 02/11/2023 - Ari Ramnarine
 Placed the code into Streamlit Cloud for accessibility via web
 
-11/03/23 - Ari Ramnarine
+03/11/23 - Ari Ramnarine
 the code was updated to allow reference to admin assistant
 
 11/11/23 - Ari Ramnarine
 The updated code was placed into a separate ver 0.02
+
+18/11/2023 - Ari
+Made changes to the disclaimer
+Made the necessary edits to the readme with website links to the old and the new website
+
+
