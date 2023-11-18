@@ -3,8 +3,8 @@ This is the git repository for the ChatBot.\
 Coding testing and logging changes will be done here.
 
 # Website links
-THis is the link to the first version of the website. [Chatbot V1.0]([https://pages.github.com/](https://studentchatbot-rgnn5jwdpragpw2nqqdbtb.streamlit.app/))\
-THis is the link to the second version of the website. [Chatbot V1.0]([https://pages.github.com/](https://vigilant-bot-p2xctroqml7du84cjtj2ps.streamlit.app/))
+This is the link to the first version of the website. [Chatbot V1.0]([https://pages.github.com/](https://studentchatbot-rgnn5jwdpragpw2nqqdbtb.streamlit.app/))\
+This is the link to the second version of the website. [Chatbot V1.0]([https://pages.github.com/](https://vigilant-bot-p2xctroqml7du84cjtj2ps.streamlit.app/))
 
 # Logs
 10/07/2023 - Ashanni Sonny\
