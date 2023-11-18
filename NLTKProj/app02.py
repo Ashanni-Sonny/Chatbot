@@ -83,7 +83,7 @@ def main():
     with st.sidebar:
         st.subheader("Your documents")
         pdf_docs = st.file_uploader(
-            "Upload your PDFs here and click on 'Process'. Disclaimer: Any information uploaded is at your risk. Please refrain from entering personal information.  ", accept_multiple_files=True)
+            "Upload your PDFs here and click on 'Process'. Disclaimer: Please submit only University documents to be processed here.  ", accept_multiple_files=True)
         if st.button("Process"):
             with st.spinner("Processing"):
                 raw_text = get_pdf_text(pdf_docs)
