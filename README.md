@@ -1,11 +1,10 @@
 # Chatbot
 This is the git repository for the ChatBot.\
-Coding testing and logging changes will be done here.\
+Coding testing and logging changes will be done here.
 
 # Website links
 THis is the link to the first version of the website. [Chatbot V1.0](https://pages.github.com/)\
-THis is the link to the second version of the website. [Chatbot V1.0](https://pages.github.com/)\
-The format for the logs is below just continue below.
+THis is the link to the second version of the website. [Chatbot V1.0](https://pages.github.com/)
 
 # Logs
 10/07/2023 - Ashanni Sonny\
