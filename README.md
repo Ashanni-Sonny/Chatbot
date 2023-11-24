@@ -14,11 +14,20 @@ The log was created.
 10/07/2023 - Ari Ramnarine
 Base code for Chatbot was added ver 0.01 in the NLTKProj folder
 
+11/10/2023 - Satyam Dookhie
+Modified and improved the get_vectorstore function and the get_conversation_chain function.
+
 10/13/2023 - Erim Herbert\
 the requirment file and the .env file were added. Coomented the two first functions within the code.
 
 13/10/2023 - Satyam Dookhie
-commented on the get_vectorstore function and the get_conversation_chain function
+Added comments to the get_vectorstore function and the get_conversation_chain function.
+
+15/10/2023 - Satyam Dookhie
+Added exception handling to the get_vectorstore function so it handles if the vectorstore is empty
+
+02/11/2023 - Satyam Dookhie
+Modified comments to the get_vectorstore function and get_conversation_chain function.
 
 02/11/2023 - Ari Ramnarine
 Placed the code into Streamlit Cloud for accessibility via web
